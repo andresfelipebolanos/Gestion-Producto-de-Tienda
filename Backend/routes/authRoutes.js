@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ message: "Contraseña incorrecta" });
 
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "2m" });
+    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "30m" });
 
     res.status(200).json({ message: "Usuario autenticado", token: token });
   } catch (error) {
